@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surya Pratap · AI & Data Scientist</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #f9fafc;
+      color: #1e293b;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header / nav */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #334155;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* hero */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 0 60px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .hero-text {
+      flex: 1 1 500px;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .hero-text .highlight {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #475569;
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      box-shadow: 0 8px 18px -6px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: #2563eb;
+      color: #2563eb;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: #2563eb;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 360px;
+      width: 100%;
+    }
+
+    .hero-card .badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .hero-card .badge i {
+      color: #2563eb;
+      font-size: 1.4rem;
+    }
+
+    .skill-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      background: #eef2ff;
+      color: #2563eb;
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+
+    /* section */
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-sub {
+      color: #64748b;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+
+    /* skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .skill-category {
+      background: white;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 6px 16px -6px rgba(0, 0, 0, 0.06);
+      border: 1px solid #e9eef3;
+      transition: 0.2s;
+    }
+
+    .skill-category:hover {
+      border-color: #bdd3ff;
+      box-shadow: 0 16px 28px -12px rgba(37, 99, 235, 0.15);
+    }
+
+    .skill-category h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      color: #0f172a;
+    }
+
+    .skill-category h3 i {
+      color: #2563eb;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: #f1f5f9;
+      color: #1e293b;
+      padding: 5px 12px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: 0.1s;
+    }
+
+    /* experience */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .exp-item {
+      display: flex;
+      gap: 24px;
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 8px 18px -8px rgba(0, 0, 0, 0.06);
+      border: 1px solid #eef2f6;
+      transition: 0.15s;
+      flex-wrap: wrap;
+    }
+
+    .exp-item:hover {
+      border-color: #bfd4ff;
+    }
+
+    .exp-icon {
+      background: #dbeafe;
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .exp-content {
+      flex: 1;
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 12px 24px;
+      margin-bottom: 8px;
+    }
+
+    .exp-header h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .exp-company {
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .exp-date {
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: #f1f5f9;
+      padding: 3px 12px;
+      border-radius: 40px;
+    }
+
+    .exp-desc {
+      color: #334155;
+      margin: 12px 0 8px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .exp-desc li {
+      margin-bottom: 6px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .exp-desc li::before {
+      content: "▹";
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    /* projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 26px;
+      padding: 26px;
+      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.06);
+      border: 1px solid #eef2f6;
+      transition: 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: #b6ceff;
+      box-shadow: 0 24px 32px -16px rgba(37, 99, 235, 0.2);
+    }
+
+    .project-card i {
+      font-size: 2rem;
+      color: #2563eb;
+      margin-bottom: 18px;
+    }
+
+    .project-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .project-card p {
+      color: #475569;
+      font-size: 0.95rem;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .project-tags span {
+      background: #eef2ff;
+      color: #2563eb;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* footer / contact */
+    .footer {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 48px 0 28px;
+      border-radius: 40px 40px 0 0;
+      margin-top: 40px;
+    }
+
+    .footer .container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-weight: 700;
+      font-size: 2rem;
+      background: linear-gradient(135deg, #60a5fa, #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      font-size: 1.4rem;
+    }
+
+    .social-links a {
+      color: #94a3b8;
+      transition: 0.2s;
+    }
+
+    .social-links a:hover {
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 24px 0;
+      border-top: 1px solid #1e293b;
+      border-bottom: 1px solid #1e293b;
+      font-size: 1rem;
+    }
+
+    .contact-info a {
+      color: #cbd5e1;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-info a:hover {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      color: #64748b;
+      font-size: 0.9rem;
+      padding-top: 16px;
+    }
+
+    /* responsive */
+    @media (max-width: 640px) {
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .exp-header {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- main container -->
+  <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="logo">Surya Pratap</div>
+      <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-text">
+        <h1>AI & Data Scientist<br><span class="highlight">3+ years</span> of impact</h1>
+        <p>Building end‑to‑end AI solutions with LLMs, Agentic AI, RAG, and production‑grade deployment. Passionate about GenAI, computer vision, and mentoring the next wave of data professionals.</p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Get in touch</a>
+          <a href="#projects" class="btn btn-outline"><i class="fas fa-code" style="margin-right: 8px;"></i> Projects</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="badge"><i class="fas fa-bolt"></i> Generative AI · Agentic · RAG</div>
+          <div class="badge"><i class="fas fa-brain"></i> LLMs · LangChain · LangGraph</div>
+          <div class="skill-pill-group">
+            <span class="pill">Python</span>
+            <span class="pill">TensorFlow</span>
+            <span class="pill">PyTorch</span>
+            <span class="pill">FastAPI</span>
+            <span class="pill">Docker</span>
+            <span class="pill">OpenCV</span>
+            <span class="pill">Power BI</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="section-title">Technical expertise</h2>
+      <p class="section-sub">A blend of deep learning, MLOps, and full‑stack AI deployment.</p>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Programming</h3>
+          <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-robot"></i> ML & AI</h3>
+          <div class="tag-list">
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Keras</span>
+            <span class="tag">PyTorch</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-comment-dots"></i> NLP & GenAI</h3>
+          <div class="tag-list">
+            <span class="tag">LangChain</span>
+            <span class="tag">LangGraph</span>
+            <span class="tag">HuggingFace</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">RAG</span>
+            <span class="tag">NLTK</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-chart-line"></i> Data & Visualization</h3>
+          <div class="tag-list">
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Seaborn</span>
+            <span class="tag">Power BI</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-server"></i> Backend & Deployment</h3>
+          <div class="tag-list">
+            <span class="tag">Django</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">Docker</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+          <div class="tag-list">
+            <span class="tag">Git/GitHub</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Jupyter</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">Render</span>
+            <span class="tag">LabVIEW</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title">Work experience</h2>
+      <p class="section-sub">From AI developer to senior data scientist — delivering real‑world AI.</p>
+      <div class="timeline">
+
+        <div class="exp-item">
+          <div class="exp-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>Senior Data Scientist</h3>
+              <span class="exp-company">Ducat Education Pvt. Ltd.</span>
+              <span class="exp-date">May 2026 – Present</span>
+            </div>
+            <ul class="exp-desc">
+              <li>Delivered corporate training in Data Science, ML, DL, NLP, Generative AI, and Agentic AI.</li>
+              <li>Built production AI apps using FastAPI, Streamlit, Docker, and OpenCV (MRI brain tumor detection).</li>
+              <li>Mentored end‑to‑end AI projects: preprocessing, feature engineering, model training, and deployment.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-icon"><i class="fas fa-flask"></i></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>Data Scientist</h3>
+              <span class="exp-company">Madrid Software</span>
+              <span class="exp-date">Jul 2025 – Apr 2026</span>
+            </div>
+            <ul class="exp-desc">
+              <li>Built GenAI applications with LLMs, LangChain, RAG, and vector databases.</li>
+              <li>Deployed scalable AI services via FastAPI, Docker, and REST APIs.</li>
+              <li>Integrated STT/TTS for real‑time voice conversational applications.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>Data Scientist</h3>
+              <span class="exp-company">Appwars Technologies</span>
+              <span class="exp-date">Aug 2024 – Feb 2025</span>
+            </div>
+            <ul class="exp-desc">
+              <li>Developed AI‑driven student support & smart teacher matching platform.</li>
+              <li>Designed smart learning assistant with recommendation & AI booking.</li>
+              <li>Built LMS using Django and responsive web apps.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-icon"><i class="fas fa-leaf"></i></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>Data Scientist</h3>
+              <span class="exp-company">Danip Technologies</span>
+              <span class="exp-date">May 2024 – Aug 2024</span>
+            </div>
+            <ul class="exp-desc">
+              <li>Climate change prediction project using ML and data visualization.</li>
+              <li>Developed responsive web dashboards for environmental data.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-icon"><i class="fas fa-microchip"></i></div>
+          <div class="exp-content">
+            <div class="exp-header">
+              <h3>AI Developer</h3>
+              <span class="exp-company">Softnexs</span>
+              <span class="exp-date">Jan 2023 – May 2024</span>
+            </div>
+            <ul class="exp-desc">
+              <li>Agriculture assistant: image‑based crop disease detection & LLM advisory.</li>
+              <li>Education portals, CRM lead generation, and voice‑enabled AI agent for booking.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Featured projects</h2>
+      <p class="section-sub">Hands‑on AI systems that solve real problems.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <i class="fas fa-plane-departure"></i>
+          <h3>AI Trip Planner</h3>
+          <p>Multi‑modal booking & price comparison agent. Personalized itineraries, real‑time price comparison, and automated bookings.</p>
+          <div class="project-tags">
+            <span>LangChain</span>
+            <span>LLM</span>
+            <span>FastAPI</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-heartbeat"></i>
+          <h3>Disease Prediction & Doctor Suggestion</h3>
+          <p>Django‑based healthcare system with ML prediction, smart doctor recommendations, and multi‑role access.</p>
+          <div class="project-tags">
+            <span>Django</span>
+            <span>Scikit-learn</span>
+            <span>MySQL</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-seedling"></i>
+          <h3>Smart Agriculture & Crop Disease Detection</h3>
+          <p>Deep learning + OpenCV for real‑time crop disease detection, plant health monitoring, and intelligent recommendations.</p>
+          <div class="project-tags">
+            <span>TensorFlow</span>
+            <span>OpenCV</span>
+            <span>Django</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-user-graduate"></i>
+          <h3>Agentic Personalized Learning Platform</h3>
+          <p>LangGraph‑powered multi‑agent system: student profiling, adaptive paths, quiz generation, answer evaluation, and feedback.</p>
+          <div class="project-tags">
+            <span>LangGraph</span>
+            <span>FastAPI</span>
+            <span>MySQL</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-brain"></i>
+          <h3>MRI Brain Tumor Detection</h3>
+          <p>AI‑powered detection using OpenCV and ML with Streamlit UI for real‑time image analysis and tumor classification.</p>
+          <div class="project-tags">
+            <span>OpenCV</span>
+            <span>Scikit-learn</span>
+            <span>Streamlit</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER / CONTACT -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">Surya Pratap</div>
+        <div class="social-links">
+          <a href="https://github.com/suryapratap1051" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/suryapratap1051" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:suryapratap1051@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="contact-info">
+        <a href="mailto:suryapratap1051@gmail.com"><i class="fas fa-envelope"></i> suryapratap1051@gmail.com</a>
+        <a href="tel:+917251018338"><i class="fas fa-phone-alt"></i> +91 7251018338</a>
+        <a href="#" target="_blank"><i class="fas fa-globe"></i> Portfolio</a>
+      </div>
+      <div class="copyright">
+        © 2025 Surya Pratap · AI & Data Scientist
+      </div>
+    </div>
+  </footer>
+
+  <!-- smooth scroll (optional) -->
+  <script>
+    // simple smooth navigation for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
